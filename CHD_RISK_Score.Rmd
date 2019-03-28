@@ -1,0 +1,130 @@
+---
+title: "CVD Risk Calculator"
+output: html_notebook
+---
+
+*Author: Koki*  
+*Date: Last edited on 3/21/2019*
+
+The following notebook calculates the CVD Risk score as shown in the following paper:
+> Conroy, R.M., Pyörälä, K., Fitzgerald, A.P., Sans, S., Menotti, A., De Backer, G., De Bacquer, D., Ducimetière, P., Jousilahti, P., Keil, U., et al. (2003). Estimation of ten-year risk of fatal cardiovascular disease in Europe: The SCORE project. European Heart Journal 24, 987–1003.
+
+The paper describes the **SCORE project**, which was initiated as an effort to develop a risk scoring system for use in clinical management of cardiovascular risk in European clinical practice. The project was conducted on a pool of dataset comprising of 12 European cohort studies, a total of 205178 participant data. The 10 year risk of fatal cardiovascular disease was calculated using a **Weibull model**, where age was used as a measure of exposure time to a risk factor. 
+
+The underlying formula for the score calculation is as follows: 
+
+### 0. Load the Coefficient tables
+**TO DO: Figure out how to set up column levels**
+
+The coefficients come from the trained model fromt the SCORE project
+```{r}
+# Load coefficients for coronary heart disease
+risk_table_A <- data.frame(risk_lvl = c('Low risk', 'Low risk', 'High risk', 'High risk'),
+                           sex = c('Men', 'Women'),
+                          # chd = c('CHD', 'Non-CHD CVD'),
+                           a1 = c(-22.1, -29.8, -21.0, -28.7),
+                           p1 = c(4.71, 6.36, 4.62, 6.23),
+                           a2 = c(-26.7, -31.0, -25.7, -30.0),
+                           p2 = c(5.64, 6.62, 5.47, 6.42))
+head(risk_table_A)
+```
+
+### 1. Calculate the underlying risks for coronary heart disease and non-coronary cardiovascular disease
+
+Calculate the underlying risks for coronary heart disease and non-coronary cardiovascular disease separately for the person's age now and for their age in ten years time, using values from $\alpha$ and $p$ shown in table A. The underlying survival probability is denoted as $S_0$ is calculated by
+
+\begin{align}
+S_0(age) = exp\{-(exp(a))(age - 20)^p\}\\
+S_0(age+10) = exp\{-(exp(a))(age - 10)^p\}
+\end{align}
+
+```{r}
+survival_probability <- function(age, a, p){
+  #' Calculates the survivability probability using coefficients a and p
+  #' 
+  #' @param age The age of the patient 
+  #' @param a Coefficient a
+  #' @param p Coefficient p 
+  S0_age <- exp(-(exp(a)) * ((age-20)**p))
+  S0_age_10 <- exp(-(exp(a)) * ((age-10)**p))
+  result <- list(S0_age, S0_age_10)
+  return(result)
+}
+```
+
+
+### 2. Calculate weighted sum $w$ of risk factors
+
+Using coefficients in table B, calculate the weighted sum, $w$, of the risk factors cholestrol, smoking and systolic blood pressure. Two weighted sums, one for coronary heart disease and one for non-coronary heart disease, will be calculated. 
+
+
+```{r}
+# Smoker, Chol, SBP
+weighted_sum_risk_factor <- function(smoker, cholestrol, SBP, weights){
+  w <- (weights[1] * smoker) + 
+       (weights[2] * (cholestrol - 6)) + 
+       (weights[3] * (SBP-120))
+    
+  return(w)
+}
+```
+
+### 3. Combining underlying risk
+```{r}
+combined_risk <- function(weight, risks){
+  S_age = risks[[1]] ** exp(weight)
+  S_age_10 = risks[[2]] ** exp(weight)
+  S10_age = S_age_10 / S_age
+  Risk_10 = 1 - S10_age
+  return(Risk_10)
+}
+```
+
+### Test Input 
+Patient: 
+* Age 55
+* Low risk
+* Men
+* SBP 120
+* Cholestrol 6
+* Smoker 1
+
+```{r}
+CHD_result = survival_probability(55, -22.1, 4.71)
+CHD_result
+```
+
+```{r}
+NON_CHD_result = survival_probability(55, -26.7, 5.64)
+NON_CHD_result
+```
+
+```{r}
+# Smoker, Chol, SBP
+weights = c(0.71, 0.24, 0.018)
+CHD_weight = weighted_sum_risk_factor(1, 4, 120, weights)
+CHD_weight
+```
+
+```{r}
+weights = c(0.63, 0.02, 0.022)
+NON_CHD_weight = weighted_sum_risk_factor(1, 4, 120, weights)
+NON_CHD_weight
+```
+
+Combine underlying risk
+
+```{r}
+CHD_Risk_10 = combined_risk(CHD_weight, CHD_result)
+CHD_Risk_10
+```
+
+```{r}
+NON_CHD_Risk_10 = combined_risk(NON_CHD_weight, NON_CHD_result)
+NON_CHD_Risk_10
+```
+
+```{r}
+total_risk = CHD_Risk_10 + NON_CHD_Risk_10
+total_risk
+```
