@@ -1,4 +1,4 @@
-function score10yrRisk (inputs) {
+function score10yrRisk(inputs) {
 
     var age = inputs.age;
     var sex = inputs.sex;
@@ -15,7 +15,7 @@ function score10yrRisk (inputs) {
 //    scoreArray.TotalRisk = "ERROR: Input out of range";
 //    
    
-    calculateRisk(age, sex, smoke, sbp, chol, risk);
+    var scoreArray = calculateRisk(age, sex, smoke, sbp, chol, risk);
     
     return scoreArray;
 }    
