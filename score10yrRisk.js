@@ -1,7 +1,7 @@
 function score10yrRisk(inputs) {
 
     var age = inputs.age;
-    var sex = inputs.sex;
+    var sex = inputs.sex.toLowerCase();
     var sbp = inputs.sbp;
     var chol = inputs.chol;
     var smoke = inputs.smoke;
