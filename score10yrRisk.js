@@ -31,25 +31,25 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
 
         //assign alpha and p coefficients
         var coefficientsCHD = {
-             "low-m-alpha":0,
-             "low-m-p":1,
-             "low-f-alpha":0,
-             "low-f-p":0,
-             "high-m-alpha":0,
-             "high-m-p":1,
-             "high-f-alpha":0,
-             "high-f-p":0
+             "low-m-alpha": -22.1,
+             "low-m-p": 4.71,
+             "low-f-alpha": -29.8,
+             "low-f-p": 6.36,
+             "high-m-alpha": -21.0,
+             "high-m-p": 4.62,
+             "high-f-alpha": -28.7,
+             "high-f-p": 6.23
         }
 
         var coefficientsNon = {
-             "low-m-alpha":0,
-             "low-m-p":1,
-             "low-f-alpha":0,
-             "low-f-p":0,
-             "high-m-alpha":0,
-             "high-m-p":1,
-             "high-f-alpha":0,
-             "high-f-p":0
+             "low-m-alpha": -26.7,
+             "low-m-p": 5.64,
+             "low-f-alpha": -31,
+             "low-f-p": 6.62,
+             "high-m-alpha": -25.7,
+             "high-m-p": 5.47,
+             "high-f-alpha": -30,
+             "high-f-p": 6.42
         }
 
 
@@ -57,7 +57,6 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
         var alphaCHD = coefficientsCHD[risk + "-" + sex + "-alpha"];
         var pCHD = coefficientsCHD[risk + "-" + sex + "-p"];
         var w = ((0.24) * (chol - 6)) + ((0.018) * (sbp - 120)) + (0.71 * smoke);
-
 
             var s_sub_0_age = Math.exp(-1 * Math.exp(alphaCHD) * (Math.pow(age - 20),(pCHD)));
             var s_sub_0_age10 = Math.exp(-1 * Math.exp(alphaCHD) * (Math.pow(age - 10),(pCHD)));
@@ -83,7 +82,6 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
             //output
             scoreArray.NonCHDRisk = 1-(s_age10Non/s_ageNon);
             scoreArray.TotalRisk = scoreArray.CHDRisk + scoreArray.NonCHDRisk;
-
 
         return scoreArray;
 }
