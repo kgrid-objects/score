@@ -1,0 +1,23 @@
+{
+  "name": "score",
+  "version": "1.0.0",
+  "description": "SCORE 10yr Risk Model Javascript KO",
+  "main": "score10yrRisk.js",
+  "dependencies": {
+    "jest": "^24.5.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kgrid-demos/score.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kgrid-demos/score/issues"
+  },
+  "homepage": "https://github.com/kgrid-demos/score#readme"
+}
