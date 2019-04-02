@@ -15,9 +15,17 @@ Repository containing the work for creating a JavaScript version of the SCORE Pr
         betaSmok
         betaChol
         
-## File Outline
+## SCORE File Structure
 
-
+├─ README.md
+├─ foo
+│  ├─ README.md
+│  ├─ one.md
+│  └─ two.md
+└─ bar
+   ├─ README.md
+   ├─ three.md
+   └─ four.md
 
 ## Output
 
