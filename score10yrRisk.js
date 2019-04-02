@@ -58,9 +58,10 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
         var pCHD = coefficientsCHD[risk + "-" + sex + "-p"];
         var w = ((0.24) * (chol - 6)) + ((0.018) * (sbp - 120)) + (0.71 * smoke);
 
-            var s_sub_0_age = Math.exp(-1 * Math.exp(alphaCHD) * (Math.pow(age - 20),(pCHD)));
-            var s_sub_0_age10 = Math.exp(-1 * Math.exp(alphaCHD) * (Math.pow(age - 10),(pCHD)));
 
+           var s_sub_0_age = Math.exp(-1 * Math.exp(alphaCHD) * Math.pow((age - 20),pCHD));
+           var s_sub_0_age10 = Math.exp(-1 * Math.exp(alphaCHD) * Math.pow((age - 10),pCHD));
+          
             var s_age = Math.pow(s_sub_0_age, Math.exp(w));
             var s_age10 = Math.pow(s_sub_0_age10, Math.exp(w));
 
@@ -73,8 +74,8 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
         var pNon = coefficientsNon[risk + "-" + sex + "-p"];
         var wNon = ((0.02) * (chol - 6)) + ((0.022) * (sbp - 120)) + (0.63 * smoke);
 
-        var s_sub_0_ageNon = Math.exp(-1 * Math.exp(alphaNon) * (Math.pow(age - 20),(pNon)));
-        var s_sub_0_age10Non = Math.exp(-1 * Math.exp(alphaNon) * (Math.pow(age - 10),(pNon)));
+        var s_sub_0_ageNon = Math.exp(-1 * Math.exp(alphaNon) * Math.pow((age - 20),pNon));
+        var s_sub_0_age10Non = Math.exp(-1 * Math.exp(alphaNon) * Math.pow((age - 10),pNon));
 
             var s_ageNon = Math.pow(s_sub_0_ageNon, Math.exp(wNon));
             var s_age10Non = Math.pow(s_sub_0_age10Non, Math.exp(wNon));
