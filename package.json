@@ -4,6 +4,7 @@
   "description": "SCORE 10yr Risk Model Javascript KO",
   "main": "score10yrRisk.js",
   "dependencies": {
+    "csvtojson": "^2.0.8",
     "jest": "^24.5.0"
   },
   "devDependencies": {
