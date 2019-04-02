@@ -1,4 +1,6 @@
 var csv = require('csvtojson');
+var scoreJS = rewire("../score");
+var score10yrRisk = scoreJS.__get__("score10yrRisk");
 
 
 // Run 80 test patients representing extremes of risk evaluation chart
@@ -10,9 +12,13 @@ const csvTestInputFilePath='./tests/input.csv'
 
 test('KO scores 80 test patients', async () => {
 
-             //expect.assertions(1);
-             const jsonArray= await csv().fromFile(csvTestInputFilePath);
-             expect(jsonArray).toBe([]);
+        
+        const jsonArray= await csv().fromFile(csvTestInputFilePath);
+        for(var count = 0; count < 81; count++) {
+            var scoreArray = score10yrRisk(jsonArray[0-4])
+            expect(scoreArray[count]).toBe(jsonArray[count][5-7])
+        }
+    
 });
 
 
