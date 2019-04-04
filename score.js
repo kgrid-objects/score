@@ -1,7 +1,7 @@
 function score10yrRisk(inputs) {
 
     var age = inputs.age;
-    var sex = inputs.sex.toLowerCase();
+    var sex = inputs.sex;
     var sbp = inputs.sbp;
     var chol = inputs.chol;
     var smoke = inputs.smoke;
@@ -10,19 +10,19 @@ function score10yrRisk(inputs) {
 
 
     // attach error message if input arguments are out of range
-//    scoreArray.CHDRisk = "ERROR: Input out of range";
-//    scoreArray.NonCHDRisk = "ERROR: Input out of range";
-//    scoreArray.TotalRisk = "ERROR: Input out of range";
+//    scoreObj.CHDRisk = "ERROR: Input out of range";
+//    scoreObj.NonCHDRisk = "ERROR: Input out of range";
+//    scoreObj.TotalRisk = "ERROR: Input out of range";
 //
 
-    var scoreArray = calculateRisk(age, sex, smoke, sbp, chol, risk);
+    var scoreObj = calculateRisk(age, sex, smoke, sbp, chol, risk);
 
-    return scoreArray;
+    return scoreObj;
 }
 
 function calculateRisk (age, sex, smoke, sbp, chol, risk) {
         // Output Array
-        var scoreArray = {
+        var scoreObj = {
             CHDRisk: -5,
             NonCHDRisk: -5,
             TotalRisk: -5,
@@ -31,25 +31,25 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
 
         //assign alpha and p coefficients
         var coefficientsCHD = {
-             "low-m-alpha": -22.1,
-             "low-m-p": 4.71,
-             "low-f-alpha": -29.8,
-             "low-f-p": 6.36,
-             "high-m-alpha": -21.0,
-             "high-m-p": 4.62,
-             "high-f-alpha": -28.7,
-             "high-f-p": 6.23
+             "low-M-alpha": -22.1,
+             "low-M-p": 4.71,
+             "low-F-alpha": -29.8,
+             "low-F-p": 6.36,
+             "high-M-alpha": -21.0,
+             "high-M-p": 4.62,
+             "high-F-alpha": -28.7,
+             "high-F-p": 6.23
         }
 
         var coefficientsNon = {
-             "low-m-alpha": -26.7,
-             "low-m-p": 5.64,
-             "low-f-alpha": -31,
-             "low-f-p": 6.62,
-             "high-m-alpha": -25.7,
-             "high-m-p": 5.47,
-             "high-f-alpha": -30,
-             "high-f-p": 6.42
+             "low-M-alpha": -26.7,
+             "low-M-p": 5.64,
+             "low-F-alpha": -31,
+             "low-F-p": 6.62,
+             "high-M-alpha": -25.7,
+             "high-M-p": 5.47,
+             "high-F-alpha": -30,
+             "high-F-p": 6.42
         }
 
 
@@ -66,7 +66,7 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
             var s_age10 = Math.pow(s_sub_0_age10, Math.exp(w));
 
             //output
-            scoreArray.CHDRisk = 1-(s_age10/s_age);
+            scoreObj.CHDRisk = 1-(s_age10/s_age);
 
 
         //calculate non-CHD CVD Risk
@@ -81,8 +81,12 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
             var s_age10Non = Math.pow(s_sub_0_age10Non, Math.exp(wNon));
 
             //output
-            scoreArray.NonCHDRisk = 1-(s_age10Non/s_ageNon);
-            scoreArray.TotalRisk = scoreArray.CHDRisk + scoreArray.NonCHDRisk;
-
-        return scoreArray;
+            scoreObj.NonCHDRisk = 1-(s_age10Non/s_ageNon);
+            scoreObj.TotalRisk = scoreObj.CHDRisk + scoreObj.NonCHDRisk;
+    
+            scoreObj.CHDRisk = scoreObj.CHDRisk.toFixed(8);
+            scoreObj.NonCHDRisk = scoreObj.NonCHDRisk.toFixed(9);
+            scoreObj.TotalRisk = scoreObj.TotalRisk.toFixed(9);
+    
+        return scoreObj;
 }

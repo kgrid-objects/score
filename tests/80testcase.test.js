@@ -1,3 +1,4 @@
+var rewire = require('rewire');
 var csv = require('csvtojson');
 var scoreJS = rewire("../score");
 var score10yrRisk = scoreJS.__get__("score10yrRisk");
@@ -14,17 +15,34 @@ test('KO scores 80 test patients', async () => {
 
         
         const jsonArray= await csv().fromFile(csvTestInputFilePath);
-        for(var count = 0; count < 81; count++) {
-            var scoreArray = score10yrRisk(jsonArray[0-4])
-            expect(scoreArray[count]).toBe(jsonArray[count][5-7])
+        for(var count = 1; count < jsonArray.length; count++) {
+            var row = jsonArray[count];
+           
+            var inputObj = {
+                age: parseFloat(row.age),
+                sex: row.sex,
+                sbp: parseFloat(row.sbp),
+                chol: parseFloat(row.chol),
+                smoke: parseInt(row.smoke),
+                risk: row.risk
+                
+            }
+            
+            var outputObj = {
+                CHDRisk: row.CHDRisk,
+                NonCHDRisk: row.NonCHDRisk,
+                TotalRisk: row.TotalRisk,
+            }
+            
+            console.log("Java Output: ", score10yrRisk(inputObj));
+            console.log("Expected: ", outputObj);
         }
-    
-});
-
+        
+  });
 
 // this is how the csv file prints
 
-``` 
+/*
 Object {
     +     "CHDRisk": "0.00595473",
     +     "age": "65",
@@ -47,5 +65,5 @@ Object {
     +     "smoke": "N",
     +     "totalRisk": "0.077102305",
     +   },
-```
+*/
 
