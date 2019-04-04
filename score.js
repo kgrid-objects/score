@@ -65,7 +65,7 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
             var s_age = Math.pow(s_sub_0_age, Math.exp(w));
             var s_age10 = Math.pow(s_sub_0_age10, Math.exp(w));
 
-            //output
+            // set output CHDRisk
             scoreObj.CHDRisk = 1-(s_age10/s_age);
 
 
@@ -80,13 +80,14 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
             var s_ageNon = Math.pow(s_sub_0_ageNon, Math.exp(wNon));
             var s_age10Non = Math.pow(s_sub_0_age10Non, Math.exp(wNon));
 
-            //output
+            // set output NonCHDRisk and TotalRisk
             scoreObj.NonCHDRisk = 1-(s_age10Non/s_ageNon);
             scoreObj.TotalRisk = scoreObj.CHDRisk + scoreObj.NonCHDRisk;
-    
-            scoreObj.CHDRisk = scoreObj.CHDRisk.toFixed(8);
-            scoreObj.NonCHDRisk = scoreObj.NonCHDRisk.toFixed(9);
-            scoreObj.TotalRisk = scoreObj.TotalRisk.toFixed(9);
-    
+            
+            // truncate each output to 9 decimal places
+            scoreObj.CHDRisk = parseFloat(scoreObj.CHDRisk.toFixed(9));
+            scoreObj.NonCHDRisk = parseFloat(scoreObj.NonCHDRisk.toFixed(9));
+            scoreObj.TotalRisk = parseFloat(scoreObj.TotalRisk.toFixed(9));
+
         return scoreObj;
 }

@@ -1,8 +1,25 @@
 var rewire = require('rewire');
 var csv = require('csvtojson');
+
 var scoreJS = rewire("../score");
 var score10yrRisk = scoreJS.__get__("score10yrRisk");
 
+/*
+ Begin Tests
+*/ 
+
+var inputsBasic1 = {
+    age: 65,
+    sex: "F",
+    smok: 1,
+    sbp: 120,
+    chol: 6,
+    risk: "low"
+}
+// Test that KO is giving (any) output
+test('KO gives output', () => {
+  expect(score10yrRisk(inputsBasic1)).toEqual(expect.anything());
+});
 
 // Run 80 test patients representing extremes of risk evaluation chart
 // Input: '80patients.csv'
@@ -29,41 +46,18 @@ test('KO scores 80 test patients', async () => {
             }
             
             var outputObj = {
-                CHDRisk: row.CHDRisk,
-                NonCHDRisk: row.NonCHDRisk,
-                TotalRisk: row.TotalRisk,
+                CHDRisk: parseFloat(row.CHDRisk),
+                NonCHDRisk: parseFloat(row.NonCHDRisk),
+                TotalRisk: parseFloat(row.TotalRisk),
             }
             
-            console.log("Java Output: ", score10yrRisk(inputObj));
-            console.log("Expected: ", outputObj);
+            expect(score10yrRisk(inputObj)).toEqual(outputObj);
         }
         
   });
 
-// this is how the csv file prints
+
 
 /*
-Object {
-    +     "CHDRisk": "0.00595473",
-    +     "age": "65",
-    +     "chol": "4",
-    +     "nonCHDRisk": "0.008040825",
-    +     "risk": "low",
-    +     "sbp": "120",
-    +     "sex": "F",
-    +     "smoke": "N",
-    +     "totalRisk": "0.013995555",
-    +   },
-    +   Object {
-    +     "CHDRisk": "0.04489347",
-    +     "age": "65",
-    +     "chol": "8",
-    +     "nonCHDRisk": "0.032208835",
-    +     "risk": "low",
-    +     "sbp": "180",
-    +     "sex": "F",
-    +     "smoke": "N",
-    +     "totalRisk": "0.077102305",
-    +   },
-*/
-
+ End Tests
+*/ 
