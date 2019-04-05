@@ -112,7 +112,7 @@ function score10yrRisk(inputs) {
 }
 
 function calculateRisk (age, sex, smoke, sbp, chol, risk) {
-        // Output Array
+        // Output Object
         var scoreObj = {
             CHDRisk: -5,
             NonCHDRisk: -5,
