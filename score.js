@@ -7,17 +7,108 @@ function score10yrRisk(inputs) {
     var smoke = inputs.smoke;
     var risk = inputs.risk;
 
+    var outputErrors = {
+      ageError: "",
+      sexError: "",
+      spbError: "",
+      cholError: "",
+      smokError: "",
+      riskError: ""
+    };
+
+    var error = "";
+
+    var scoreObj = {
+      CHDRisk: -5,
+      NonCHDRisk: -5,
+      TotalRisk: -5,
+      error: "",
+    };
 
 
-    // attach error message if input arguments are out of range
-//    scoreObj.CHDRisk = "ERROR: Input out of range";
-//    scoreObj.NonCHDRisk = "ERROR: Input out of range";
-//    scoreObj.TotalRisk = "ERROR: Input out of range";
-//
 
-    var scoreObj = calculateRisk(age, sex, smoke, sbp, chol, risk);
+    if (age > 65) { // only calculate between 30 to 90 years old***
+      age = 65;
+      outputErrors.ageError = "ERROR: Input out of range. Age must" +
+                          " be within 40 to 65 inclusive. Age set to 65" +
+                          " by default.";
 
-    return scoreObj;
+    }
+    else if (age < 40) {
+      age = 40;
+      outputErrors.ageError = "ERROR: Input out of range. Age must" +
+                          " be within 40 to 65 inclusive. Age set to 40" +
+                          " by default.";
+    }
+    else if (age <= 30 || age >= 90) {
+      outputErrors.ageError = "ERROR: Input out of range. Age must" +
+                          " be within 40 to 65 inclusive";
+      return outputErrors.ageError;
+    }
+    if (sex != "F" && sex != "M") { // wont calculate if something like "Q"
+      outputErrors.sexError = "ERROR: Input invalid."
+      return outputErrors.sexError;
+    }
+    if (sbp > 180) { // if > 180 then == 180
+      sbp = 180;
+
+      outputErrors.sbpError = "ERROR: Input out of range. SBP must" +
+                          " be within 120 to 180 inclusive. SBP set to 180" +
+                          " by default."
+    }
+    else if (sbp < 120) {
+      sbp = 120;
+      outputErrors.sbpError = "ERROR: Input out of range. SBP must" +
+                          " be within 120 to 180 inclusive. SBP set to 120" +
+                          " by default."
+    }
+    if (chol > 8) { // if > 8 then == 8
+      chol = 8;
+      outputErrors.cholError = "ERROR: Input out of range. Cholesterol must" +
+                          " be within 4 to 8 inclusive. Cholesterol set to" +
+                          " 8 by default."
+    }
+    else if (chol < 4) {
+      chol = 4;
+      outputErrors.cholError = "ERROR: Input out of range. Cholesterol must" +
+                          " be within 4 to 8 inclusive. Cholesterol set to" +
+                          " 4 by default."
+    }
+    console.log(smoke);
+
+    if (smoke != 1 && smoke != 0) { // wont calculate
+      outputErrors.smokError = "ERROR: Input invalid. Smoke status must be 0 for" +
+                           " nonsmoker and 1 for smoker."
+      return outputErrors.smokError;
+    }
+    if (risk != "low" && risk != "high") { // wont calculate ?
+      outputErrors.riskError = "ERROR: Input invalid. Risk must be 'low' or 'high'";
+      return outputErrors.riskError;
+    }
+
+
+
+    // risk calculation
+
+    var scoreObjFin = calculateRisk(age, sex, smoke, sbp, chol, risk);
+    console.log(scoreObjFin.TotalRisk);
+
+    console.log(outputErrors.ageError);
+
+    // error = outputErrors.ageError + " " + outputErrors.sexError + " "
+    for ( i = 0; i < 6; ++i) {
+      if (outputErrors[i] != "" && outputErrors[i] != undefined) {
+        error += outputErrors[i];
+        error += " "
+      }
+    }
+
+    if (error != "" && outputErrors[i] != undefined) {
+      scoreObjFin.error = error;
+    }
+    console.log(scoreObjFin.error);
+
+    return scoreObjFin;
 }
 
 function calculateRisk (age, sex, smoke, sbp, chol, risk) {
@@ -26,7 +117,7 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
             CHDRisk: -5,
             NonCHDRisk: -5,
             TotalRisk: -5,
-
+            error: "",
         };
 
         //assign alpha and p coefficients
@@ -61,7 +152,7 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
 
            var s_sub_0_age = Math.exp(-1 * Math.exp(alphaCHD) * Math.pow((age - 20),pCHD));
            var s_sub_0_age10 = Math.exp(-1 * Math.exp(alphaCHD) * Math.pow((age - 10),pCHD));
-          
+
             var s_age = Math.pow(s_sub_0_age, Math.exp(w));
             var s_age10 = Math.pow(s_sub_0_age10, Math.exp(w));
 
@@ -83,7 +174,7 @@ function calculateRisk (age, sex, smoke, sbp, chol, risk) {
             // set output NonCHDRisk and TotalRisk
             scoreObj.NonCHDRisk = 1-(s_age10Non/s_ageNon);
             scoreObj.TotalRisk = scoreObj.CHDRisk + scoreObj.NonCHDRisk;
-            
+
             // truncate each output to 9 decimal places
             scoreObj.CHDRisk = parseFloat(scoreObj.CHDRisk.toFixed(9));
             scoreObj.NonCHDRisk = parseFloat(scoreObj.NonCHDRisk.toFixed(9));
