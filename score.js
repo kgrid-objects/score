@@ -111,6 +111,7 @@ function score10yrRisk(inputs) {
     return scoreObjFin;
 }
 
+
 function calculateRisk (age, sex, smoke, sbp, chol, risk) {
         // Output Object
         var scoreObj = {
