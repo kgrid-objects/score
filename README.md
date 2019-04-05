@@ -17,17 +17,25 @@ Repository containing the work for creating a JavaScript version of the SCORE Pr
         betaSmok
         betaChol
         
+### Input Validation
+Values for systolic blood pressure (sbp) and total cholesterol (chol) were validated against ranges provided by [Loinc](https://loinc.org/).
+
+
+        
 ## SCORE File Structure
 
-├─ README.md
-├─ foo
-│  ├─ README.md
-│  ├─ one.md
-│  └─ two.md
-└─ bar
-   ├─ README.md
-   ├─ three.md
-   └─ four.md
+```
+kgrid-demos/score
+│   README.md
+│   score.js
+|   package.json
+│
+└───tests
+│   │   input.csv
+│   │   score.test.js
+│   
+└───resources
+```
 
 ## Output
 

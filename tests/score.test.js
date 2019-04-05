@@ -58,6 +58,11 @@ test('KO scores 80 test patients', async () => {
 
 
 
+// check extreme input values
+// ex. age boundary
+//     **Warning** This patient's age places them outside of the recommended blah blah **
+
+
 /*
  End Tests
 */ 
