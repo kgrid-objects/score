@@ -1,31 +1,25 @@
 function score10yrRisk(inputs) {
 
-    var age = inputs.age;
-    var sex = inputs.sex;
-    var sbp = inputs.sbp;
-    var chol = inputs.chol;
-    var smoke = inputs.smoke;
-    var risk = inputs.risk;
+    comment.scorePayload = validate(inputs);
+            
+    scorePayload.CHDRisk = calculateRisk()
+            
+           
+    inputs.scorePayload = {
+        var inputs.age = inputs.age;
+        var inputs.sex = inputs.sex;
+        var inputs.sbp = inputs.sbp;
+        var inputs.chol = inputs.chol;
+        var inputs.smoke = inputs.smoke;
+        var inputs.risk = inputs.risk;
+    }
+    scorePayload.riskScores = calculateRisk(age, sex, smoke, sbp, chol, risk);
+    scorePayload.comment = validate(inputs);
 
-    var outputErrors = {
-      ageError: "",
-      sexError: "",
-      spbError: "",
-      cholError: "",
-      smokError: "",
-      riskError: ""
-    };
+    return scorePayload;
+}
 
-    var error = "";
-
-    var scoreObj = {
-      CHDRisk: -5,
-      NonCHDRisk: -5,
-      TotalRisk: -5,
-      error: "",
-    };
-
-
+function validate (age, sex, smoke, sbp, chol, risk) {
 
     if (age > 65) { // only calculate between 30 to 90 years old***
       age = 65;
@@ -85,42 +79,10 @@ function score10yrRisk(inputs) {
       outputErrors.riskError = "ERROR: Input invalid. Risk must be 'low' or 'high'";
       return outputErrors.riskError;
     }
-
-
-
-    // risk calculation
-
-    var scoreObjFin = calculateRisk(age, sex, smoke, sbp, chol, risk);
-    console.log(scoreObjFin.TotalRisk);
-
-    console.log(outputErrors.ageError);
-
-    // error = outputErrors.ageError + " " + outputErrors.sexError + " "
-    for ( i = 0; i < 6; ++i) {
-      if (outputErrors[i] != "" && outputErrors[i] != undefined) {
-        error += outputErrors[i];
-        error += " "
-      }
-    }
-
-    if (error != "" && outputErrors[i] != undefined) {
-      scoreObjFin.error = error;
-    }
-    console.log(scoreObjFin.error);
-
-    return scoreObjFin;
 }
 
-
 function calculateRisk (age, sex, smoke, sbp, chol, risk) {
-        // Output Object
-        var scoreObj = {
-            CHDRisk: -5,
-            NonCHDRisk: -5,
-            TotalRisk: -5,
-            error: "",
-        };
-
+    
         //assign alpha and p coefficients
         var coefficientsCHD = {
              "low-M-alpha": -22.1,
