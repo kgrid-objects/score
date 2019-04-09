@@ -26,7 +26,11 @@ Age must be between 30 and 90 years, and for values greater than 65 or less than
 
 # How to get the SCORE Knowledge object running in your local environment
 
-a half dozen steps andd a link to the kgrid getting started guide
+a half dozen steps and a link to the kgrid getting started guide
+
+```
+java -jar kgrid-activator-1.0.5.jar --kgrid.shelf.cdostore.url=filesystem:file:${PWD}
+```
 
 
 # How the code for the SCORE Knowledge Object is organized
@@ -60,7 +64,6 @@ Total =
 ### Error Output
 
 Ex. "Out of range value received for Age = 22" 
-
 
 ### Future Development
 
