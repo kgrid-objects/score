@@ -8,21 +8,27 @@ function score10yrRisk(inputs) {
 
 function validate (inputs) {
     var outputErrors = {};
-    if (inputs.age > 65 && inputs.age < 90) { // only calculate between 30 to 90 years old
+    if (inputs.age > 90) {
+      outputErrors.ageError = "ERROR: Input out of range. Age must" +
+                          " be within 40 to 65 inclusive";
+    }
+    else if (inputs.age > 65) { // only calculate between 30 to 90 years old
+      inputs.age = 65;
       outputErrors.age = "ERROR: Input out of range. Age must" +
                           " be within 40 to 65 inclusive. Age set to 65" +
                           " by default.";
     }
-   else if (inputs.age < 40 && inputs.age > 30) {
+    else if (inputs.age < 30) {
+      outputErrors.ageError = "ERROR: Input out of range. Age must" +
+                          " be within 40 to 65 inclusive";
+    }
+    else if (inputs.age < 40) {
      inputs.age = 40;
      outputErrors.ageError = "ERROR: Input out of range. Age must" +
                          " be within 40 to 65 inclusive. Age set to 40" +
                          " by default.";
    }
-   else if (inputs.age <= 30 || inputs.age >= 90) {
-     outputErrors.ageError = "ERROR: Input out of range. Age must" +
-                         " be within 40 to 65 inclusive";
-   }
+
 
    if (inputs.sex != "F" && inputs.sex != "M") {
      outputErrors.sexError = "ERROR: Input invalid. Sex must be 'M' or 'F'"
