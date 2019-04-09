@@ -5,7 +5,7 @@
   "title": "SCORE Project",
   "hasServiceSpecification": "v1/service-specification.yaml",
   "hasDeploymentSpecification": "v1/deployment-specification.yaml",
-  "hasPayload": "v1/score.js",
+  "hasPayload": "v1/src/score.js",
   "@context": [
     "http://kgrid.org/koio/contexts/implementation.jsonld"
   ]
