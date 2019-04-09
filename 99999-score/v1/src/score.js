@@ -1,6 +1,6 @@
 function score10yrRisk(inputs) {
     var outputs = {};
-    outputs.comment = validate(inputs);        
+    outputs.comment = validate(inputs);
     outputs.riskOutputs = calculateRisk(inputs);
 
     return outputs;
@@ -8,63 +8,59 @@ function score10yrRisk(inputs) {
 
 function validate (inputs) {
     var outputErrors = {};
-    if (inputs.age > 65) { // only calculate between 30 to 90 years old***
+    if (inputs.age > 65 && inputs.age < 90) { // only calculate between 30 to 90 years old
       outputErrors.age = "ERROR: Input out of range. Age must" +
                           " be within 40 to 65 inclusive. Age set to 65" +
                           " by default.";
     }
-//    else if (inputs.age < 40) {
-//      inputs.age = 40;
-//      outputErrors.ageError = "ERROR: Input out of range. Age must" +
-//                          " be within 40 to 65 inclusive. Age set to 40" +
-//                          " by default.";
-//    }
-//    else if (inputs.age <= 30 || inputs.age >= 90) {
-//      outputErrors.ageError = "ERROR: Input out of range. Age must" +
-//                          " be within 40 to 65 inclusive";
-//      return outputErrors.ageError;
-//    }
-//    if (inputs.sex != "F" && inputs.sex != "M") { // wont calculate if something like "Q"
-//      outputErrors.sexError = "ERROR: Input invalid."
-//      return outputErrors.sexError;
-//    }
-//    if (inputs.sbp > 180) { // if > 180 then == 180
-//      inputs.sbp = 180;
-//
-//      outputErrors.sbpError = "ERROR: Input out of range. SBP must" +
-//                          " be within 120 to 180 inclusive. SBP set to 180" +
-//                          " by default."
-//    }
-//    else if (inputs.sbp < 120) {
-//      inputs.sbp = 120;
-//      outputErrors.sbpError = "ERROR: Input out of range. SBP must" +
-//                          " be within 120 to 180 inclusive. SBP set to 120" +
-//                          " by default."
-//    }
-//    if (inputs.chol > 8) { // if > 8 then == 8
-//      inputs.chol = 8;
-//      outputErrors.cholError = "ERROR: Input out of range. Cholesterol must" +
-//                          " be within 4 to 8 inclusive. Cholesterol set to" +
-//                          " 8 by default."
-//    }
-//    else if (inputs.chol < 4) {
-//      inputs.chol = 4;
-//      outputErrors.cholError = "ERROR: Input out of range. Cholesterol must" +
-//                          " be within 4 to 8 inclusive. Cholesterol set to" +
-//                          " 4 by default."
-//    }
-//    console.log(inputs.smoke);
-//
-//    if (inputs.smoke != 1 && inputs.smoke != 0) { // wont calculate
-//      outputErrors.smokError = "ERROR: Input invalid. Smoke status must be 0 for" +
-//                           " nonsmoker and 1 for smoker."
-//      return outputErrors.smokError;
-//    }
-//    if (inputs.risk != "low" && inputs.risk != "high") { // wont calculate ?
-//      outputErrors.riskError = "ERROR: Input invalid. Risk must be 'low' or 'high'";
-//      return outputErrors.riskError;
-//    }
-    return outputErrors;
+   else if (inputs.age < 40 && inputs.age > 30) {
+     inputs.age = 40;
+     outputErrors.ageError = "ERROR: Input out of range. Age must" +
+                         " be within 40 to 65 inclusive. Age set to 40" +
+                         " by default.";
+   }
+   else if (inputs.age <= 30 || inputs.age >= 90) {
+     outputErrors.ageError = "ERROR: Input out of range. Age must" +
+                         " be within 40 to 65 inclusive";
+   }
+
+   if (inputs.sex != "F" && inputs.sex != "M") {
+     outputErrors.sexError = "ERROR: Input invalid. Sex must be 'M' or 'F'"
+   }
+   if (inputs.sbp > 180) { // if > 180 then == 180
+     inputs.sbp = 180;
+
+     outputErrors.sbpError = "ERROR: Input out of range. SBP must" +
+                         " be within 120 to 180 inclusive. SBP set to 180" +
+                         " by default."
+   }
+   else if (inputs.sbp < 120) {
+     inputs.sbp = 120;
+     outputErrors.sbpError = "ERROR: Input out of range. SBP must" +
+                         " be within 120 to 180 inclusive. SBP set to 120" +
+                         " by default."
+   }
+   if (inputs.chol > 8) { // if > 8 then == 8
+     inputs.chol = 8;
+     outputErrors.cholError = "ERROR: Input out of range. Cholesterol must" +
+                         " be within 4 to 8 inclusive. Cholesterol set to" +
+                         " 8 by default."
+   }
+   else if (inputs.chol < 4) {
+     inputs.chol = 4;
+     outputErrors.cholError = "ERROR: Input out of range. Cholesterol must" +
+                         " be within 4 to 8 inclusive. Cholesterol set to" +
+                         " 4 by default."
+   }
+   if (inputs.smoke != 1 && inputs.smoke != 0) {
+     outputErrors.smokError = "ERROR: Input invalid. Smoke status must be 0 for" +
+                          " nonsmoker and 1 for smoker."
+   }
+   if (inputs.risk != "low" && inputs.risk != "high") {
+     outputErrors.riskError = "ERROR: Input invalid. Risk must be 'low' or 'high'";
+   }
+
+  return outputErrors;
 }
 
 
