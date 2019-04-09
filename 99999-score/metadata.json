@@ -1,13 +1,13 @@
 {
-  "@id": "hello-world",
+  "@id": "99999-score",
   "@type":"koio:KnowledgeObject",
-  "identifier":"ark:/hello/world",
-  "title":"Hello World Title",
+  "identifier":"ark:/99999/score",
+  "title":"SCORE Project",
   "contributors": "Kgrid Team",
-  "description": "Test Hello World ",
-  "keywords": "test hello world",
+  "description": "Predict 10-year risk of cardiovascular disease",
+  "keywords": "test cvd risk",
   "hasImplementation":[
-    "hello-world/koio.v1","hello-world/bundle.v1","hello-world/bundle.v2"
+    "99999-score/v1"
   ],
   "@context" : ["http://kgrid.org/koio/contexts/knowledgeobject.jsonld" ]
 }

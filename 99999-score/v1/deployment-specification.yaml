@@ -1,5 +1,5 @@
 endpoints:
-  /welcome:
+  /score:
     adapterType: JAVASCRIPT
-    artifact: main.js
-    entry: welcome
+    artifact: score.js
+    entry: score10yrRisk

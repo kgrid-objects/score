@@ -1,11 +1,11 @@
 {
-  "@id": "bundle.v2",
+  "@id": "v1",
   "@type": "koio:Implementation",
-  "identifier": "ark:/hello/world/bundle.v2",
-  "title": "Implementation bundle v2 of Hello World",
-  "hasServiceSpecification": "bundle.v2/service-specification.yaml",
-  "hasDeploymentSpecification": "bundle.v2/deployment-specification.yaml",
-  "hasPayload": "bundle.v2/main.js",
+  "identifier": "ark:/99999/score/v1",
+  "title": "SCORE Project",
+  "hasServiceSpecification": "v1/service-specification.yaml",
+  "hasDeploymentSpecification": "v1/deployment-specification.yaml",
+  "hasPayload": "v1/score.js",
   "@context": [
     "http://kgrid.org/koio/contexts/implementation.jsonld"
   ]
