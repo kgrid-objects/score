@@ -49,22 +49,27 @@ components:
       properties:
         sex:
           type: string
-          example: M
+          enum: [M, F]
         age:
           type: integer
-          example: 50
         smoke:
-          type: integer
-          example: 1
+          type: boolean
         risk:
           type: string
-          example: high
+          enum: [high, low]
         sbp:
           type: integer
-          example: 140
+          minimum: 120
+          maximum: 180
         chol:
           type: number
-          example: 8
+      example:
+        age: 45
+        sex: F
+        smoke: false
+        risk: low
+        sbp: 120
+        chol: 4
     output:
       required:
         - result
