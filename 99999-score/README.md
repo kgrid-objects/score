@@ -11,13 +11,26 @@ The 10-year risk score is calculated based on these inputs:
         Smok (1/0)
         CHD Risk
         
-The score equation uses coefficients based on age gender and population characteristics (high risk, low risk)
+The scoring equation uses coefficients based on age, gender and population characteristics (high risk, low risk)
 
         betaSBP
         betaSmok
         betaChol
                 
 A matrix of risk values are (alpha, p) are supplied...
+
+#### Example input
+
+```json
+{
+   "sex": "M", 
+   "age": 50,
+   "smoke": "0", 
+   "risk": "low", 
+   "sbp": 140, 
+   "chol": 5 
+}
+```
         
 ### Input Validation
 Values for systolic blood pressure (sbp) and total cholesterol (chol) were validated against ranges provided by [Loinc](https://loinc.org/).

@@ -5,7 +5,7 @@ info:
   description: 'Predict 10-year risk of cardiovascular disease'
 servers:
   - url: '/99999/score/v1/'
-    description: 'Predict 10-year risk of cardiovascular disease bundle.v1'
+    description: 'Predict 10-year risk of cardiovascular disease'
 tags:
   - name: KO Endpoints
     description: Score Endpoints
@@ -14,8 +14,8 @@ paths:
     post:
       tags:
         - KO Endpoints
-      description: Hello
-      operationId: hello
+      description: 'Predict 10-year risk of cardiovascular disease'
+      operationId: score
       requestBody:
         description: inputs
         required: true
@@ -40,15 +40,31 @@ components:
   schemas:
     input:
       required:
-        - name
-        - language
+        - sex
+        - age
+        - smoke
+        - risk
+        - sbp
+        - chol
       properties:
-        name:
+        sex:
           type: string
-          example: Carol
-        language:
+          example: M
+        age:
+          type: integer
+          example: 50
+        smoke:
+          type: integer
+          example: 1
+        risk:
           type: string
-          example: spanish
+          example: high
+        sbp:
+          type: integer
+          example: 140
+        chol:
+          type: number
+          example: 8
     output:
       required:
         - result
