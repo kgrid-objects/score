@@ -2,7 +2,6 @@ function score10yrRisk(inputs) {
     var outputs = {};
     outputs.comment = validate(inputs);
 
-    outputs.comment.mark = 1;
     outputs.riskOutputs = calculateRisk(inputs);
 
     return outputs;

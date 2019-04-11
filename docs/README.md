@@ -84,7 +84,7 @@ You can check that the Activator is running by going to http://localhost:8080/99
 To try out the SCORE KO in the Swagger Editor you need to point to the service description from the Swagger Editor at https://editor.swagger.io. The easiest way to is construct a [Swagger Editor url pointing to the OpenAPI YAML file](https://editor.swagger.io/?url=http://localhost:8080/99999/score/v1/service-specification.yaml) containing the service description:
 
 ```
-https://editor.swagger.io/?url=http://localhost:8080/99999/score/v1/service-specification.yaml
+https://editor.swagger.io/?url=https://monkey-activator.kgrid.org/99999/score/v1/service-specification.yaml
 ```
 
 Follow the editor instructions to try out the SCORE interface. THe Swagger Editor prepopulates the request with the example from teh service description. You can change the input parameters to see how CHD risk is affected.
