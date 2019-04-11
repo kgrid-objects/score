@@ -1,3 +1,8 @@
+<!--https://demo.kgrid.org/score/
+Intended Use: Constraints (input/ouput format), what is the model, how can I see it in use
+KGrid Personas: Integrator, Provider, Researcher-as-user 
+-->
+
 # SCORE Project 10-Year Risk of Cardiovascular Disease
 Repository containing the work for creating a JavaScript version of the SCORE Project's model for estimation of ten-year risk of fatal cardiovascular disease.
 
