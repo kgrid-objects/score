@@ -2,12 +2,13 @@
   "@id": "99999-score",
   "@type":"koio:KnowledgeObject",
   "identifier":"ark:/99999/score",
-  "title":"SCORE Project",
-  "contributors": "Kgrid Team",
-  "description": "Predict 10-year risk of cardiovascular disease",
-  "keywords": "test cvd risk",
+  "title":"Systematic COronary Risk Evaluation (SCORE) All Europe High/Low 10 Year Cardiac Risk Population Model",
+  "contributors": "A prototype of the Knowledge Grid team based on the HeartScore of the European Association of Preventive Cardiology",
+  "description": "A computable function to predict 10-year risk of cardiovascular disease in European high and low risk populations",
+  "citations": ["https://demo.kgrid.org/score"],
+  "keywords": "SCORE, EAPC, coronary heart disease, cardiovascular disease, risk prediction, HeartScore",
   "hasImplementation":[
     "99999-score/v1"
   ],
-  "@context" : ["http://kgrid.org/koio/contexts/knowledgeobject.jsonld" ]
+  "@context" : ["http://kgrid.org/koio/contexts/knowledgeobject.jsonld","https://academic.oup.com/eurheartj/article/24/11/987/427645"]
 }

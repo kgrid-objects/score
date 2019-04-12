@@ -92,8 +92,12 @@ Total =
 
 ### To package the object
 
-zip -r 99999-score.zip 99999-score -x '*node_modules*' '*resources*'
+We haven't set up packaging scripts but a basic object can be packaged from a source code tree with something like:
 
+
+```bash
+zip -r 99999-score.zip 99999-score -x '*node_modules*' '99999-score/resources*' -i '99999-score/*metadata.json' '99999-score/*.yaml' '99999-score/*/src/*.js'
+```
 ### Future Development
 
 KnowledgeObject to render an image in the browser representing risk score position on chart
