@@ -9,60 +9,61 @@ function score10yrRisk(inputs) {
 
 function validate (inputs) {
     var outputErrors = {};
+    // validate age input
     if (inputs.age > 90) {
-      outputErrors.ageError = "ERROR: Input out of range. Age must" +
-                          " be within 40 to 65 inclusive";
+     inputs.age = 90;
+      outputErrors.ageError = "ERROR: Input out of range. Age input must" +
+                          " be within 30 to 90 years. Age input set to 90 years.";
     }
-    else if (inputs.age > 65) { // only calculate between 30 to 90 years old
-      inputs.age = 65;
-      outputErrors.age = "ERROR: Input out of range. Age must" +
-                          " be within 40 to 65 inclusive. Age set to 65" +
-                          " by default.";
+    else if (inputs.age > 64) { // warning for ages outside of 45-64 recommended range
+        outputErrors.age = "Warning: Age input out of recommended range." +
+                          "Model intended for prediction of patients" +
+                          "between 45 and 64 years of age.";
     }
     else if (inputs.age < 30) {
-      outputErrors.ageError = "ERROR: Input out of range. Age must" +
-                          " be within 40 to 65 inclusive";
+        inputs.age = 30;
+        outputErrors.ageError = "ERROR: Input out of range. Age input must" +
+                          " be within 30 to 90 years. Age input set to 30 years.";
     }
-    else if (inputs.age < 40) {
-     inputs.age = 40;
-     outputErrors.ageError = "ERROR: Input out of range. Age must" +
-                         " be within 40 to 65 inclusive. Age set to 40" +
-                         " by default.";
+    else if (inputs.age < 45) {
+        outputErrors.ageError = "Warning: Age input out of recommended range." +
+                          "Model intended for prediction of patients" +
+                          "between 45 and 64 years of age.";
    }
 
-
+   // validate sex input
    if (inputs.sex != "F" && inputs.sex != "M") {
      outputErrors.sexError = "ERROR: Input invalid. Sex must be 'M' or 'F'"
    }
+    // validate SBP input
    if (inputs.sbp > 180) { // if > 180 then == 180
      inputs.sbp = 180;
 
-     outputErrors.sbpError = "ERROR: Input out of range. SBP must" +
-                         " be within 120 to 180 inclusive. SBP set to 180" +
-                         " by default."
+     outputErrors.sbpError = "ERROR: Input out of range. SBP input must" +
+                          " be within 120 and 180 mmHg. SBP input set to 180 mmHg."
    }
    else if (inputs.sbp < 120) {
      inputs.sbp = 120;
-     outputErrors.sbpError = "ERROR: Input out of range. SBP must" +
-                         " be within 120 to 180 inclusive. SBP set to 120" +
-                         " by default."
+     outputErrors.sbpError = "ERROR: Input out of range. SBP input must" +
+                          " be within 120 and 180 mmHg. SBP input set to 120 mmHg."
    }
+    // validate CHOL input
    if (inputs.chol > 8) { // if > 8 then == 8
      inputs.chol = 8;
-     outputErrors.cholError = "ERROR: Input out of range. Cholesterol must" +
-                         " be within 4 to 8 inclusive. Cholesterol set to" +
-                         " 8 by default."
+     outputErrors.cholError = "ERROR: Input out of range. CHOL input must" +
+                          " be within 4 and 8 mmol/L. SBP input set to 8 mmol/L."
    }
    else if (inputs.chol < 4) {
      inputs.chol = 4;
-     outputErrors.cholError = "ERROR: Input out of range. Cholesterol must" +
-                         " be within 4 to 8 inclusive. Cholesterol set to" +
-                         " 4 by default."
+     outputErrors.cholError = "ERROR: Input out of range. CHOL input must" +
+                          " be within 4 and 8 mmol/L. SBP input set to 4 mmol/L."
    }
+    // validate snoke input
    if (inputs.smoke != 1 && inputs.smoke != 0) {
      outputErrors.smokError = "ERROR: Input invalid. Smoke status must be 0 for" +
                           " nonsmoker and 1 for smoker."
    }
+    // validate risk input
    if (inputs.risk != "low" && inputs.risk != "high") {
      outputErrors.riskError = "ERROR: Input invalid. Risk must be 'low' or 'high'";
    }
