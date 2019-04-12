@@ -5,6 +5,7 @@
   "title":"SCORE Project",
   "contributors": "Kgrid Team",
   "description": "Predict 10-year risk of cardiovascular disease",
+  "citations": ["https://demo.kgrid.org/score"],
   "keywords": "test cvd risk",
   "hasImplementation":[
     "99999-score/v1"
