@@ -3,30 +3,29 @@ Intended Use: Constraints (input/ouput format), what is the model, how can I see
 KGrid Personas: Integrator, Provider, Researcher-as-user 
 -->
 
-# SCORE Project 10-Year Risk of Cardiovascular Disease
-Repository containing the work for creating a JavaScript version of the SCORE Project's model for estimation of ten-year risk of fatal cardiovascular disease.
+# Systematic COronary Risk Evaluation (SCORE) Project 10-Year Risk of Cardiovascular Disease
+Documentation about a prototype JavaScript version of the SCORE Project's high and low European population risk model for estimation of 10-year risk of fatal cardiovascular disease.
 
-This readme file is focused on teh current (v1) implementation of the SCORE KO
+This readme file is focused on the current (v1) implementation of the SCORE Knowledge Object (KO)
 
-## Inputs
-
-The 10-year risk score is calculated based on these inputs:
+## Inputs to the risk scoring function comprising the payload of the KO are:
        
-        Age (40-65)
-        SBP (sys/dias) 120,140,160,180
-        CHOL (4-8)
-        Smok (1/0)
-        CHD Risk
+        Age (variable = age) between 40-65 years
+        Systolic Blood Pressure (variable = sbp) at four levels only: 120,140,160,180+ mmHg
+        Total Cholesterol (variable = chol) between 4-8+ mmol/L
+        Smoking (variable = smoke) in two levels, 1=Yes or 0=No
+        Coronary Heart Disease Population Risk (risk) at two levels only: high, low 
         
-The scoring equation uses coefficients based on age, gender and population characteristics (high risk, low risk)
-
-        betaSBP
-        betaSmok
-        betaChol
+The SCORE function in the KO uses coefficients for systolic blood pressure, smoking, and cholesterol for both coronary and non-coronary cardiovascular disease risk.
                 
-A matrix of risk values are (alpha, p) are supplied...
+In addition, the SCORE function in the KO uses other coefficients for coronary and non-coronary cardiovascular disease risk two different European populations. A higher-risk Northern European population's coefficients are available along with those of a lower-risk Southern European population. 
 
-#### Example input
+All of these coefficients have been taken from:
+Conroy RM, Pyörälä K, Fitzgerald AE, Sans S, Menotti A, De Backer G, De Bacquer D, Ducimetiere P, Jousilahti P, Keil U, Njølstad I. Estimation of ten-year risk of fatal cardiovascular disease in Europe: the SCORE project. European heart journal. 2003 Jun 1;24(11):987-1003.
+
+https://academic.oup.com/eurheartj/article/24/11/987/427645
+
+#### Example input to the SCORE function in the KO
 
 ```json
 {
@@ -39,10 +38,14 @@ A matrix of risk values are (alpha, p) are supplied...
 }
 ```
         
-### Input Validation
-Values for systolic blood pressure (sbp) and total cholesterol (chol) were validated against ranges provided by [Loinc](https://loinc.org/).
+### Validation of input data elements
+Values for systolic blood pressure (sbp) and total cholesterol (chol) are validated against the following ranges:
 
-Age must be between 30 and 90 years, and for values greater than 65 or less than 45 the results are limited.
+An sbp value between 120 and 180 mmHg is expected. Lower or higher values are mapped to 120 or 180, respectively. 
+
+A chol value between 4 and 8 mmol/L is expected.  Lower or higher values are mapped to 4 or 8, respectively. 
+
+An age value between 30 and 90 years is expected. For age values greater than 65 or less than 45, results are given, however the model is predicated on data from 45 to 64 years old and therefore results for individuals 30 to 45 and 65 to 90 are likely to be less accurate.  
 
 # How to get the SCORE Knowledge Object running in your local environment
 
