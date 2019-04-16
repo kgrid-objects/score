@@ -24,14 +24,22 @@ jobs:
 
     - run:
         name: Create Score zip ready for deployment
-        command: (cd ./99999-score/v1; npm run package)
+        command: (cd ./99999-score/v1; npm run package);
+
+    - run:
+        name: Create Score zip ready for deployment
+        command: |
+          mkdir -p dist
+          cp 99999-score.zip dist
+
+
 
 
     - store_artifacts:
         path: dist
 
     - store_test_results:
-        path: test_results
+        path: ./99999-score/test_results
 
 
 workflows:

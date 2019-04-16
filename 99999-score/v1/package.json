@@ -6,15 +6,28 @@
   "dependencies": {
     "ajv": "^6.10.0",
     "csvtojson": "^2.0.8",
-    "jest": "^24.5.0"
+    "jest": "^24.5.0",
+    "jest-junit": "^5.1.0"
   },
   "devDependencies": {
     "jest": "^24.5.0",
     "rewire": "^4.0.1"
   },
   "scripts": {
-    "package": "(cd ../../; zip -r 99999-score.zip 99999-score -x '*node_modules*' '*tests*' -i '*metadata.json' '*.yaml' '*.js')",
-    "test": "jest"
+    "package": "(cd ../../; zip -r 99999-score.zip 99999-score -x '*node_modules*' '*test*' -i '*metadata.json' '*.yaml' '*.js')",
+    "test": "jest --passWithNoTests --ci --reporters=default --reporters=jest-junit"
+  },
+  "jest": {
+    "verbose": true,
+    "reporters": [
+      "default",
+      "jest-junit"
+    ]
+  },
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "outputDirectory": "test_results",
+    "output": "junit.xml"
   },
   "repository": {
     "type": "git",
