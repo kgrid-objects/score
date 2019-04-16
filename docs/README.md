@@ -47,7 +47,7 @@ A chol value between 4 and 8 mmol/L is expected.  Lower or higher values are map
 
 An age value between 30 and 90 years is expected. For age values greater than 65 or less than 45, results are given, however the model is predicated on data from 45 to 64 years old and therefore results for individuals 30 to 45 and 65 to 90 are likely to be less accurate.  
 
-# How to get the SCORE Knowledge Object running in your local environment
+# Try Out the SCORE Knowledge Object
 
 ### Starting from source code
 
@@ -82,17 +82,17 @@ You can check that the Activator is running by going to http://localhost:8080/99
 }
 ```
 
-### Explore the SCORE KO
+### Explore the SCORE KO using Swagger
 
-To try out the SCORE KO in the Swagger Editor you need to point to the service description from the Swagger Editor at https://editor.swagger.io. The easiest way to is construct a [Swagger Editor url pointing to the OpenAPI YAML file](https://editor.swagger.io/?url=http://localhost:8080/99999/score/v1/service-specification.yaml) containing the service description:
+To try out the SCORE KO in the Swagger Editor follow the link below. This constructs a [Swagger Editor url pointing to the OpenAPI YAML file](https://editor.swagger.io/?url=http://localhost:8080/99999/score/v1/service-specification.yaml) containing the service description:
 
 ```
-https://editor.swagger.io/?url=https://monkey-activator.kgrid.org/99999/score/v1/service-specification.yaml
+https://editor.swagger.io/?url=https://activator.kgrid.org/99999/score/v1/service-specification.yaml
 ```
 
 Follow the editor instructions to try out the SCORE interface. THe Swagger Editor prepopulates the request with the example from teh service description. You can change the input parameters to see how CHD risk is affected.
 
-### Starting from the packaged SCORE KO in a KGRID Library
+### Trying out the Knowledge Object in a 
 
-Go to the sandbox library at monkey-library.kgrid.org and push to push to the sandbox activator at monkey-activator.kgrid.org and follow the link to the Swagger Editor (pointing back to the sandbox activator instance)
+The [Swagger Editor](https://swagger.io/tools/swagger-editor/) link above allows you to interact directly with the KO by generating the body API function calls, and view the resulting payload.
 
