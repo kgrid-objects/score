@@ -51,23 +51,22 @@ An age value between 30 and 90 years is expected. For age values greater than 65
 
 ### Explore the SCORE KO using Swagger
 
-Follow [this link](https://editor.swagger.io/?url=https://activator.kgrid.org/99999/score/v1/service-specification.yaml) to try out the SCORE KO in the Swagger Editor.
+Follow [THIS LINK TO THE SCORE KO](https://editor.swagger.io/?url=https://activator.kgrid.org/99999/score/v1/service-specification.yaml) to try it out in the Swagger Editor. In this case, the Swagger Editor reads the service description from the SCORE KO, enabling you to enter input parameters and compute results without having to install any software. 
 
-The [Swagger Editor](https://swagger.io/tools/swagger-editor/) prepopulates the request with the example from the service description. You can change the input parameters to see how CHD risk is affected in the payload returned by the Knowledge Object.
+More information about the [Swagger Editor](https://swagger.io/tools/swagger-editor/) is available online.
 
+### Exploring the SCORE KO after doing a local installation of Knowledge Grid source code
 
-### Starting from source code
-
-Check out the score object GitHub repo:
+Begin by cloning the SCORE KO GitHub repo:
 
 ```bash
 git clone https://github.com/kgrid-demos/score.git
 cd score
 ```
 
-Then download the latest release of the KGrid Activator from the [release page](https://github.com/kgrid/kgrid-activator/releases) (https://github.com/kgrid/kgrid-activator/releases)
+Next, download the latest release of the KGrid Activator from the [release page](https://github.com/kgrid/kgrid-activator/releases) (https://github.com/kgrid/kgrid-activator/releases)
 
-directly into the `score` directory you just checked out and start up the Activator pointing to the current directory. For example, on a Mac (you'll need the [Java SDK version 8 or higher](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) running on your machine):
+Then, move the KGrid Activator into the `score` directory you just cloned and checked out and start up the Activator while pointing it to the current directory. For example, on a Mac (you'll need the [Java SDK version 8 or higher](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) running on your machine):
 
 ```
 java -jar kgrid-activator-1.0.6.jar --kgrid.shelf.cdostore.url=filesystem:file:${PWD}
