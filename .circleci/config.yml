@@ -39,7 +39,7 @@ jobs:
         path: dist
 
     - store_test_results:
-        path: ./99999-score/test_results
+        path: ./99999-score/v1/test_results
 
 
 workflows:
