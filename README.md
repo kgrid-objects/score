@@ -17,7 +17,12 @@ See https://kgrid-objects.github.io/score/ (or README.md in the `docs` directory
 
 ### Prerequisites
 There are testing and packaging features in this project that require npm, npm is installed with Node.js npm. 
-Once npm is installed run npm install at the root of this project.
+  Once npm is installed
+  
+  ```
+  cd ./99999-score/v1
+  npm install
+  ```
 
 #
 
@@ -106,7 +111,7 @@ Total =
 
 ### Score Testing
 
-UNIT Tests are located in the tests directory and can be executed using _npm_.  These tests utilize
+Unit Tests are located in the tests directory and can be executed using _npm_.  These tests utilize
 [Jest](https://jestjs.io/) and  [rewire](https://github.com/jhnns/rewire). Jest provides the testing
 framework and rewire allows the tests to access the javascript function without the
 convince of the export modules.  The [tests](../99999-score/v1/tests) are in
