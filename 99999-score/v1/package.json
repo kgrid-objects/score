@@ -13,6 +13,7 @@
     "rewire": "^4.0.1"
   },
   "scripts": {
+    "package": "(cd ../../; zip -r 99999-score.zip 99999-score -x '*node_modules*' '*tests*' -i '*metadata.json' '*.yaml' '*.js')",
     "test": "jest"
   },
   "repository": {

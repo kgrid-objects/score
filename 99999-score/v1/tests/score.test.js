@@ -1,7 +1,7 @@
 var rewire = require('rewire');
 var csv = require('csvtojson');
 
-var scoreJS = rewire("../src/score");
+var scoreJS = rewire("../score");
 var score10yrRisk = scoreJS.__get__("score10yrRisk");
 var calculateRisk = scoreJS.__get__("calculateRisk");
 

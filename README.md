@@ -1,4 +1,4 @@
-<!-- https://github.com/kgrid-demos/score
+<!-- https://github.com/kgrid-objects/score
 Intended Use: exploring/updating code that implements this model
 KGrid Personas: Developer 
 -->
@@ -9,18 +9,24 @@ Repository containing the work for creating a JavaScript version of the SCORE Pr
 ---
 **NOTE**
 
-See http://demo.kgrid.org/score (or README.md in the `docs` directory) for more information on what the SCORE model does and how to use it.
+See https://kgrid-objects.github.io/score/ (or README.md in the `docs` directory) for more information on what the SCORE model does and how to use it.
 
 ----
 
 ## How to get the SCORE Knowledge Object running in your local environment
+
+### Prerequisites
+There are testing and packaging features in this project that require npm, npm is installed with Node.js npm. 
+Once npm is installed run npm install at the root of this project.
+
+#
 
 ### Starting from source code
 
 Check out the score object GitHub repo:
 
 ```bash
-git clone https://github.com/kgrid-demos/score.git
+git clone https://github.com/kgrid-objects/score.git
 cd score
 ```
 
@@ -68,20 +74,28 @@ Go to the sandbox library at monkey-library.kgrid.org and push to push to the sa
 ## SCORE File Structure
 
 ```
-kgrid-demos/score
-│   README.md
-│   score.js
-|   package.json
-│
-└───tests
-│   │   input.csv
-│   │   score.test.js
-│   
-└───resources
-```
+├── 99999-score
+│   ├── metadata.json
+│   └── v1
+│       ├── deployment-specification.yaml
+│       ├── metadata.json
+│       ├── package-lock.json
+│       ├── package.json
+│       ├── score.js
+│       ├── service-specification.yaml
+│       └── tests
+│           ├── input.csv
+│           └── score.test.js
+├── README.md
+└── docs
+    ├── README.md
+    └── resources
+        ├── CHD_RISK_Score.Rmd
+        ├── CVD.Scoring.Clinicians.1209.full.pdf
+        ├── SCORE\ Workbook.v2.xlsx
+        └── score_project_results.pdf
 
-## Packages
-* [csvtojson](https://www.npmjs.com/package/csvtojson#parameters)
+```
 
 ## Output
 
@@ -90,14 +104,43 @@ Non-CHD CVD Risk =
 Total = 
 
 
-### To package the object
+### Score Testing
 
-We haven't set up packaging scripts but a basic object can be packaged from a source code tree with something like:
+UNIT Tests are located in the tests directory and can be executed using _npm_.  These tests utilize
+[Jest](https://jestjs.io/) and  [rewire](https://github.com/jhnns/rewire). Jest provides the testing
+framework and rewire allows the tests to access the javascript function without the
+convince of the export modules.  The [tests](../99999-score/v1/tests) are in
+the tests directory.  You can execute the tests via npm
 
-
-```bash
-zip -r 99999-score.zip 99999-score -x '*node_modules*' '99999-score/resources*' -i '99999-score/*metadata.json' '99999-score/*.yaml' '99999-score/*/src/*.js'
 ```
+npm test
+```
+
+### Package
+
+You can create zip file of the Knowledge Object which can be used to deposit to a KGrid
+Library or load/activate on a KGrid Activator.
+
+```
+npm run package
+```
+
+### Tools
+
+*NPM Tool*
+
+* [jest](https://jestjs.io/)
+* [rewire](https://github.com/jhnns/rewire)
+* [csvtojson](https://www.npmjs.com/package/csvtojson#parameters)
+
+### CI Build and Release
+**CI Build**
+
+The IPP Collection utilized [Circle CI](https://circleci.com/gh/kgrid-objects/score)
+- Score KO is tested 
+- Score KO is packaged 
+
+
 ### Future Development
 
 KnowledgeObject to render an image in the browser representing risk score position on chart
