@@ -3,7 +3,7 @@ Intended Use: exploring/updating code that implements this model
 KGrid Personas: Developer 
 -->
 
-[![GitHub release](https://img.shields.io/github/release/kgrid-objects/scoresvg)](https://github.com/kgrid-objects/score/releases/)
+[![GitHub release](https://img.shields.io/github/release/kgrid-objects/score.svg)](https://github.com/kgrid-objects/score/releases/)
 [![CircleCI](https://circleci.com/gh/kgrid-objects/score.svg?style=svg)](https://circleci.com/gh/kgrid-objects/score)
 
 # SCORE Project 10-Year Risk of Cardiovascular Disease
