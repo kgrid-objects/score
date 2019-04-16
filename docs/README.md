@@ -49,6 +49,17 @@ An age value between 30 and 90 years is expected. For age values greater than 65
 
 # Try Out the SCORE Knowledge Object
 
+### Explore the SCORE KO using Swagger
+
+To try out the SCORE KO in the Swagger Editor follow the link below. This constructs a [Swagger Editor url pointing to the OpenAPI YAML file](https://editor.swagger.io/?url=http://localhost:8080/99999/score/v1/service-specification.yaml) containing the service description:
+
+```
+https://editor.swagger.io/?url=https://activator.kgrid.org/99999/score/v1/service-specification.yaml
+```
+
+Follow the editor instructions to try out the SCORE interface. THe Swagger Editor prepopulates the request with the example from teh service description. You can change the input parameters to see how CHD risk is affected.
+
+
 ### Starting from source code
 
 Check out the score object GitHub repo:
@@ -81,16 +92,6 @@ You can check that the Activator is running by going to http://localhost:8080/99
   ]
 }
 ```
-
-### Explore the SCORE KO using Swagger
-
-To try out the SCORE KO in the Swagger Editor follow the link below. This constructs a [Swagger Editor url pointing to the OpenAPI YAML file](https://editor.swagger.io/?url=http://localhost:8080/99999/score/v1/service-specification.yaml) containing the service description:
-
-```
-https://editor.swagger.io/?url=https://activator.kgrid.org/99999/score/v1/service-specification.yaml
-```
-
-Follow the editor instructions to try out the SCORE interface. THe Swagger Editor prepopulates the request with the example from teh service description. You can change the input parameters to see how CHD risk is affected.
 
 ### Trying out the Knowledge Object in a 
 
