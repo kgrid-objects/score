@@ -46,6 +46,6 @@ workflows:
   main:
     jobs:
     - build:
-        filters:cd c
+        filters:
           branches:
             only: master
