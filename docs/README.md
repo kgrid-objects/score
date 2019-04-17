@@ -10,8 +10,9 @@ This readme file is focused on the current (v1) implementation of the SCORE Know
 
 ## Inputs to the risk scoring function comprising the payload of the KO are:
        
-        Age (variable = age) between 40-65 years
-        Systolic Blood Pressure (variable = sbp) at four levels only: 120,140,160,180+ mmHg
+        Age (variable = age) recommended for patients 40-65 years of age
+        Sex (variable = sex) in two levels, M=male and F=female
+        Systolic Blood Pressure (variable = sbp) between 120-180 mmHg
         Total Cholesterol (variable = chol) between 4-8+ mmol/L
         Smoking (variable = smoke) in two levels, 1=Yes or 0=No
         Coronary Heart Disease Population Risk (risk) at two levels only: high, low 
