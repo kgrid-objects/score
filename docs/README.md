@@ -91,6 +91,11 @@ You can check that the Activator is running by going to http://localhost:8080/99
 
 Follow [this]( https://www.apirequest.io/5cb6433ae9f62e2d43ec1485?at=eyJhcHAiOiI1Y2I2NDMzYWU5ZjYyZTJkNDNlYzE0ODUiLCJhdWQiOiI2dVowbk9qZnJyOE5JajRyOEk2Tk51clN2RjdWWTJtTCIsInZlciI6IjEiLCJvcmciOiIwOjAiLCJwZXJtaXNzaW9ucyI6eyIwOjAiOnsic2NwIjoiY3JlYXRlOndvcmtzcGFjZXMgcmVhZDp3b3Jrc3BhY2VzIHVwZGF0ZTp3b3Jrc3BhY2VzIGRlbGV0ZTp3b3Jrc3BhY2VzIn19LCJleHAiOjE1NTc5NjQ4MDAsImp0aSI6Ijg5NGQwNmIxLTUzODItNDI3MC04MjA1LTk5NTEwZWYzZjJiZCJ9.wGBP6WptzEeUI9VZ2kyIttNzr6Rn_aLNGPrbnTKjLIo) link to a free browser-based HTTP client to send HTTP requests already loaded with the URL for the Knowledge Grid Activator and necessary headings/body format for a POST command call. Adjust the input values and call the knowledge object... example response pictured below.
 
+&nbsp;
+&nbsp;
 
-![SCORE KO POST] (https://github.com/kgrid-objects/score/blob/master/docs/resources/response.png)
+
+![KO POST](resources/response.png?raw=true "Title")
+
+
 
