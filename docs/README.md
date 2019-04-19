@@ -60,7 +60,7 @@ Follow [THIS LINK TO THE SCORE KO](https://editor.swagger.io/?url=https://activa
 
 You have just processed the patient data shown below and generated the following cardiac risk outputs:
 
-```JSON
+```
 INPUT:
 {
   "age": 45,
@@ -78,7 +78,7 @@ OUTPUT:
     "riskOutputs": {
       "CHDRisk": 0.000412461,
       "NonCHDRisk": 0.000491568,
-      "TotalRisk": 0.000904029     # <------- TOTAL CARDIAC RISK SCORE IS HERE (0.09%)
+      "TotalRisk": 0.000904029      <------- TOTAL CARDIAC RISK SCORE IS HERE (0.09%)
     }
   },
   "info": {
