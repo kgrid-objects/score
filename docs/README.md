@@ -145,13 +145,13 @@ You can check that the Activator is running by going to http://localhost:8080/99
 }
 ```
 
-Follow [this]( https://www.apirequest.io/5cb6433ae9f62e2d43ec1485?at=eyJhcHAiOiI1Y2I2NDMzYWU5ZjYyZTJkNDNlYzE0ODUiLCJhdWQiOiI2dVowbk9qZnJyOE5JajRyOEk2Tk51clN2RjdWWTJtTCIsInZlciI6IjEiLCJvcmciOiIwOjAiLCJwZXJtaXNzaW9ucyI6eyIwOjAiOnsic2NwIjoiY3JlYXRlOndvcmtzcGFjZXMgcmVhZDp3b3Jrc3BhY2VzIHVwZGF0ZTp3b3Jrc3BhY2VzIGRlbGV0ZTp3b3Jrc3BhY2VzIn19LCJleHAiOjE1NTc5NjQ4MDAsImp0aSI6Ijg5NGQwNmIxLTUzODItNDI3MC04MjA1LTk5NTEwZWYzZjJiZCJ9.wGBP6WptzEeUI9VZ2kyIttNzr6Rn_aLNGPrbnTKjLIo) link to a free browser-based HTTP client to send HTTP requests already loaded with the URL for the Knowledge Grid Activator and necessary headings/body format for a POST command call. Adjust the input values and call the knowledge object... example response pictured below.
+Follow [this](https://www.apirequest.io/5cba2a476c7cdd3c5844dd3b?at=eyJhcHAiOiI1Y2JhMmE0NzZjN2NkZDNjNTg0NGRkM2IiLCJhdWQiOiI2dVowbk9qZnJyOE5JajRyOEk2Tk51clN2RjdWWTJtTCIsInZlciI6IjEiLCJvcmciOiIwOjAiLCJwZXJtaXNzaW9ucyI6eyIwOjAiOnsic2NwIjoiY3JlYXRlOndvcmtzcGFjZXMgcmVhZDp3b3Jrc3BhY2VzIHVwZGF0ZTp3b3Jrc3BhY2VzIGRlbGV0ZTp3b3Jrc3BhY2VzIn19LCJleHAiOjE1NTgyMjQwMDAsImp0aSI6IjJmNTg1ZTMxLTYzYjEtNGY5MS05OWY4LWY2Y2NkOWE5MGNmZCJ9.jCDq5VKBnXvU1OWzhJvOH4PqXJnQK_Ux-sPP5V8OYPY) link to a free browser-based HTTP client to send HTTP requests already loaded with the URL for the Knowledge Grid Activator and necessary headings/body format for a POST command call. Adjust the input values and call the knowledge object... example response pictured below.
 
 &nbsp;
 &nbsp;
 
 
-![KO POST](resources/response.png?raw=true "Title")
+![KO POST](resources/request.png?raw=true "Title")
 
 
 
