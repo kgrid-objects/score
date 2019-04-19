@@ -124,8 +124,10 @@ Next, download the latest release of the KGrid Activator from the [release page]
 Then, move the KGrid Activator into the `score` directory you just cloned and checked out and start up the Activator while pointing it to the current directory. For example, on a Mac (you'll need the [Java SDK version 8 or higher](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) running on your machine):
 
 ```
-java -jar kgrid-activator-1.0.6.jar --kgrid.shelf.cdostore.url=filesystem:file:${PWD}
+java -jar kgrid-activator-1.0.8.jar --kgrid.shelf.cdostore.url=filesystem:file:${PWD}
 ```
+Note: If the activator does not run using the command above, confirm the version you have downloaded matches the name of the version in the command, e.g., 1.0.8.
+
 You can check that the Activator is running by going to http://localhost:8080/99999/score/v1 in a browser. You should see the metadata for the SCORE KO:
 
 ```json
