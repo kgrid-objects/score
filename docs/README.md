@@ -52,7 +52,59 @@ An age value between 30 and 90 years is expected. For age values greater than 65
 
 ### Explore the SCORE KO using Swagger
 
-Follow [THIS LINK TO THE SCORE KO](https://editor.swagger.io/?url=https://activator.kgrid.org/99999/score/v1/service-specification.yaml) to try it out in the Swagger Editor. In this case, the Swagger Editor reads the service description from the SCORE KO, enabling you to enter input parameters and compute results without having to install any software. 
+Follow [THIS LINK TO THE SCORE KO](https://editor.swagger.io/?url=https://activator.kgrid.org/99999/score/v1/service-specification.yaml) to try it out in the Swagger Editor. You can follow these steps:
+
+1. Click on the KO POST/Score endpoint which appears as a green bar on the right side of the screen.
+2. Click on the "Try it out" button that now appears on the right side of the screen
+3. Scroll down to the blue "Execute" bar and click on it
+
+You have just processed the patient data shown below and generated the following cardiac risk outputs:
+
+INPUT:
+{
+  "age": 45,
+  "sex": "F",
+  "smoke": false,
+  "risk": "low",
+  "sbp": 120,
+  "chol": 4
+}
+
+OUTPUT:
+{
+  "result": {
+    "comment": {},
+    "riskOutputs": {
+      "CHDRisk": 0.000412461,
+      "NonCHDRisk": 0.000491568,
+      "TotalRisk": 0.000904029      <------- TOTAL CARDIAC RISK SCORE IS HERE (0.09%)
+    }
+  },
+  "info": {
+    "ko": {
+      "@id": "v1",
+      "@type": "koio:Implementation",
+      "identifier": "ark:/99999/score/v1",
+      "title": "SCORE Project",
+      "hasServiceSpecification": "v1/service-specification.yaml",
+      "hasDeploymentSpecification": "v1/deployment-specification.yaml",
+      "hasPayload": "v1/score.js",
+      "@context": [
+        "http://kgrid.org/koio/contexts/implementation.jsonld"
+      ]
+    },
+    "inputs": {
+      "age": 45,
+      "sex": "F",
+      "smoke": false,
+      "risk": "low",
+      "sbp": 120,
+      "chol": 4
+    }
+  }
+}
+
+In this case, the Swagger Editor reads the service description from the SCORE KO. The service description and the code running on an instance of the Knowledge Grid Activator are what enables you to enter input parameters and compute outputs without having to install any software locally. 
 
 More information about the [Swagger Editor](https://swagger.io/tools/swagger-editor/) is available online.
 
