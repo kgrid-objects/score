@@ -145,7 +145,9 @@ You can check that the Activator is running by going to http://localhost:8080/99
 }
 ```
 
-Follow [this](https://www.apirequest.io/5cba2a476c7cdd3c5844dd3b?at=eyJhcHAiOiI1Y2JhMmE0NzZjN2NkZDNjNTg0NGRkM2IiLCJhdWQiOiI2dVowbk9qZnJyOE5JajRyOEk2Tk51clN2RjdWWTJtTCIsInZlciI6IjEiLCJvcmciOiIwOjAiLCJwZXJtaXNzaW9ucyI6eyIwOjAiOnsic2NwIjoiY3JlYXRlOndvcmtzcGFjZXMgcmVhZDp3b3Jrc3BhY2VzIHVwZGF0ZTp3b3Jrc3BhY2VzIGRlbGV0ZTp3b3Jrc3BhY2VzIn19LCJleHAiOjE1NTgyMjQwMDAsImp0aSI6IjJmNTg1ZTMxLTYzYjEtNGY5MS05OWY4LWY2Y2NkOWE5MGNmZCJ9.jCDq5VKBnXvU1OWzhJvOH4PqXJnQK_Ux-sPP5V8OYPY) link to a free browser-based HTTP client to send HTTP requests already loaded with the URL for the Knowledge Grid Activator and necessary headings/body format for a POST command call. Adjust the input values and call the knowledge object... example response pictured below.
+Follow [this](https://www.apirequest.io/5cba2a476c7cdd3c5844dd3b?at=eyJhcHAiOiI1Y2JhMmE0NzZjN2NkZDNjNTg0NGRkM2IiLCJhdWQiOiI2dVowbk9qZnJyOE5JajRyOEk2Tk51clN2RjdWWTJtTCIsInZlciI6IjEiLCJvcmciOiIwOjAiLCJwZXJtaXNzaW9ucyI6eyIwOjAiOnsic2NwIjoiY3JlYXRlOndvcmtzcGFjZXMgcmVhZDp3b3Jrc3BhY2VzIHVwZGF0ZTp3b3Jrc3BhY2VzIGRlbGV0ZTp3b3Jrc3BhY2VzIn19LCJleHAiOjE1NTgyMjQwMDAsImp0aSI6IjJmNTg1ZTMxLTYzYjEtNGY5MS05OWY4LWY2Y2NkOWE5MGNmZCJ9.jCDq5VKBnXvU1OWzhJvOH4PqXJnQK_Ux-sPP5V8OYPY) link to a free tool that is preconfigured to engage the Activator instance with the SCORE KO running on your local machine at localhost:8080.
+
+Click on the green Send All button to perform a calculation on your machine using the SCORE KO.
 
 &nbsp;
 &nbsp;
