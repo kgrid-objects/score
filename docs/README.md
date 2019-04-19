@@ -60,6 +60,7 @@ Follow [THIS LINK TO THE SCORE KO](https://editor.swagger.io/?url=https://activa
 
 You have just processed the patient data shown below and generated the following cardiac risk outputs:
 
+```JSON
 INPUT:
 {
   "age": 45,
@@ -103,6 +104,7 @@ OUTPUT:
     }
   }
 }
+```
 
 In this case, the Swagger Editor reads the service description from the SCORE KO. The service description and the code running on an instance of the Knowledge Grid Activator are what enables you to enter input parameters and compute outputs without having to install any software locally. 
 
