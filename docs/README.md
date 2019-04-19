@@ -115,7 +115,7 @@ More information about the [Swagger Editor](https://swagger.io/tools/swagger-edi
 Begin by cloning the SCORE KO GitHub repo:
 
 ```bash
-git clone https://github.com/kgrid-demos/score.git
+git clone https://github.com/kgrid-objects/score.git
 cd score
 ```
 
