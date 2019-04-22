@@ -52,7 +52,7 @@ An age value between 30 and 90 years is expected. For age values greater than 65
 
 ### Explore the SCORE KO using Swagger
 
-Follow [THIS LINK TO THE SCORE KO](https://editor.swagger.io/?url=https://activator.kgrid.org/99999/score/v1/service-specification.yaml){:target="_blank"} to try it out in the Swagger Editor. You can follow these steps:
+Follow [THIS LINK TO THE SCORE KO](https://editor.swagger.io/?url=https://activator.kgrid.org/99999/score/v1/service-specification.yaml) to try it out in the Swagger Editor. You can follow these steps:
 
 1. Click on the KO POST/Score endpoint which appears as a green bar on the right side of the screen.
 2. Click on the "Try it out" button that now appears on the right side of the screen
