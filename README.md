@@ -5,6 +5,8 @@ KGrid Personas: Developer
 
 [![GitHub release](https://img.shields.io/github/release/kgrid-objects/score.svg)](https://github.com/kgrid-objects/score/releases/)
 [![CircleCI](https://circleci.com/gh/kgrid-objects/score.svg?style=svg)](https://circleci.com/gh/kgrid-objects/score)
+[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg)](http://perso.crans.org/besson/LICENSE.html)
+
 
 # SCORE Project 10-Year Risk of Cardiovascular Disease
 Repository containing the work for creating a JavaScript version of the SCORE Project's model for estimation of ten-year risk of fatal cardiovascular disease.
