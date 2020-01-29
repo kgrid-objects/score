@@ -26,13 +26,6 @@ jobs:
         name: Create Score zip ready for deployment
         command: npm run package
 
-    - run:
-        name: Create Score zip ready for deployment
-        command: |
-          mkdir -p dist
-          cp 99999-score.zip dist
-
-
     - store_artifacts:
         path: dist
 
