@@ -24,7 +24,7 @@ jobs:
 
     - run:
         name: Create Score zip ready for deployment
-        command: (cd ./99999-score; kgrid package);
+        command: npm run package
 
     - run:
         name: Create Score zip ready for deployment
