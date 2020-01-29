@@ -1,7 +1,7 @@
 var rewire = require('rewire');
 var csv = require('csvtojson');
 
-var scoreJS = rewire("../score");
+var scoreJS = rewire("../99999-score/score");
 var score10yrRisk = scoreJS.__get__("score10yrRisk");
 var calculateRisk = scoreJS.__get__("calculateRisk");
 
@@ -24,7 +24,7 @@ test('KO gives output', () => {
 
 
 // Test 2
-// 
+//
 test('Test 2', () => {
     var inputs = {
         age: 66,
@@ -34,7 +34,7 @@ test('Test 2', () => {
         chol: 6,
         risk: "low"
     }
-   
+
     var outputs = {
         "riskOutputs": {
         "CHDRisk": 0.021562707,
@@ -42,7 +42,7 @@ test('Test 2', () => {
          "TotalRisk": 0.039014453,
   }
 }
-    
+
     expect(score10yrRisk(inputs).riskOutputs).toEqual(outputs.riskOutputs);
 });
 
@@ -68,7 +68,7 @@ test('KO scores 80 test patients', async () => {
                 smoke: parseInt(row.smoke),
                 risk: row.risk
             }
-            
+
             var outputs = {
                 CHDRisk: parseFloat(row.CHDRisk),
                 NonCHDRisk: parseFloat(row.NonCHDRisk),

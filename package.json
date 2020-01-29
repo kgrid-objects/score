@@ -7,14 +7,15 @@
     "ajv": "^6.10.0",
     "csvtojson": "^2.0.8",
     "jest": "^24.5.0",
-    "jest-junit": "^5.1.0"
+    "jest-junit": "^10.0.0"
   },
   "devDependencies": {
     "jest": "^24.5.0",
-    "rewire": "^4.0.1"
+    "rewire": "^4.0.1",
+    "@kgrid/cli": "^0.4.3"
   },
   "scripts": {
-    "package": "(cd ../../; zip -r 99999-score.zip 99999-score -x '*node_modules*' '*test*' -i '*metadata.json' '*.yaml' '*.js')",
+    "package": "cd 99999-score && kgrid package",
     "test": "jest --passWithNoTests --ci --reporters=default --reporters=jest-junit"
   },
   "jest": {

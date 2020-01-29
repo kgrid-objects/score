@@ -16,15 +16,15 @@ jobs:
 
     - run:
         name: Install Score Object
-        command: (cd ./99999-score/v1; npm install)
+        command: npm install
 
     - run:
         name: Score Tests
-        command: (cd ./99999-score/v1; npm test)
+        command: npm test
 
     - run:
         name: Create Score zip ready for deployment
-        command: (cd ./99999-score/v1; npm run package);
+        command: (cd ./99999-score; kgrid package);
 
     - run:
         name: Create Score zip ready for deployment
@@ -33,13 +33,11 @@ jobs:
           cp 99999-score.zip dist
 
 
-
-
     - store_artifacts:
         path: dist
 
     - store_test_results:
-        path: ./99999-score/v1/test_results
+        path: ./test_results
 
 
 workflows:

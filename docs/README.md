@@ -1,6 +1,6 @@
 <!--https://demo.kgrid.org/score/
 Intended Use: Constraints (input/ouput format), what is the model, how can I see it in use
-KGrid Personas: Integrator, Provider, Researcher-as-user 
+KGrid Personas: Integrator, Provider, Researcher-as-user
 -->
 
 # Systematic COronary Risk Evaluation (SCORE) Project 10-Year Risk of Cardiovascular Disease
@@ -9,17 +9,17 @@ Documentation about a prototype JavaScript version of the SCORE Project's high a
 This readme file is focused on the current (v1) implementation of the SCORE Knowledge Object (KO)
 
 ## Inputs to the risk scoring function comprising the payload of the KO are:
-       
+
         Age (variable = age) recommended for patients 40-65 years of age
         Sex (variable = sex) in two levels, M=male and F=female
         Systolic Blood Pressure (variable = sbp) between 120-180 mmHg
         Total Cholesterol (variable = chol) between 4-8+ mmol/L
         Smoking (variable = smoke) in two levels, 1=Yes or 0=No
-        Coronary Heart Disease Population Risk (risk) at two levels only: high, low 
-        
+        Coronary Heart Disease Population Risk (risk) at two levels only: high, low
+
 The SCORE function in the KO uses coefficients for systolic blood pressure, smoking, and cholesterol for both coronary and non-coronary cardiovascular disease risk.
-                
-In addition, the SCORE function in the KO uses other coefficients for coronary and non-coronary cardiovascular disease risk two different European populations. A higher-risk Northern European population's coefficients are available along with those of a lower-risk Southern European population. 
+
+In addition, the SCORE function in the KO uses other coefficients for coronary and non-coronary cardiovascular disease risk two different European populations. A higher-risk Northern European population's coefficients are available along with those of a lower-risk Southern European population.
 
 All of these coefficients have been taken from:
 Conroy RM, Pyörälä K, Fitzgerald AE, Sans S, Menotti A, De Backer G, De Bacquer D, Ducimetiere P, Jousilahti P, Keil U, Njølstad I. Estimation of ten-year risk of fatal cardiovascular disease in Europe: the SCORE project. European heart journal. 2003 Jun 1;24(11):987-1003.
@@ -30,21 +30,21 @@ https://academic.oup.com/eurheartj/article/24/11/987/427645
 
 ```json
 {
-   "sex": "M", 
+   "sex": "M",
    "age": 50,
-   "smoke": "0", 
-   "risk": "low", 
-   "sbp": 140, 
-   "chol": 5 
+   "smoke": "0",
+   "risk": "low",
+   "sbp": 140,
+   "chol": 5
 }
 ```
-        
+
 ### Validation of input data elements
 Values for systolic blood pressure (sbp) and total cholesterol (chol) are validated against the following ranges:
 
-An sbp value between 120 and 180 mmHg is expected. Lower or higher values are mapped to 120 or 180, respectively. 
+An sbp value between 120 and 180 mmHg is expected. Lower or higher values are mapped to 120 or 180, respectively.
 
-A chol value between 4 and 8 mmol/L is expected.  Lower or higher values are mapped to 4 or 8, respectively. 
+A chol value between 4 and 8 mmol/L is expected.  Lower or higher values are mapped to 4 or 8, respectively.
 
 An age value between 30 and 90 years is expected. For age values greater than 65 or less than 45, results are given, however the model is predicated on data from 45 to 64 years old and therefore results for individuals 30 to 45 and 65 to 90 are likely to be less accurate.  
 
@@ -52,7 +52,7 @@ An age value between 30 and 90 years is expected. For age values greater than 65
 
 ### Explore the SCORE KO using Swagger
 
-Follow [THIS LINK TO THE SCORE KO](https://editor.swagger.io/?url=https://activator.kgrid.org/99999/score/v1/service-specification.yaml) to try it out in the Swagger Editor. You can follow these steps:
+Follow [THIS LINK TO THE SCORE KO](https://editor.swagger.io/?url=https://kgrid-activator.herokuapp.com/kos/99999/score/service) to try it out in the Swagger Editor. You can follow these steps:
 
 1. Click on the KO POST/Score endpoint which appears as a green bar on the right side of the screen.
 2. Click on the "Try it out" button that now appears on the right side of the screen
@@ -106,7 +106,7 @@ OUTPUT:
 }
 ```
 
-In this case, the Swagger Editor reads the service description from the SCORE KO. The service description and the code running on an instance of the Knowledge Grid Activator are what enables you to enter input parameters and compute outputs without having to install any software locally. 
+In this case, the Swagger Editor reads the service description from the SCORE KO. The service description and the code running on an instance of the Knowledge Grid Activator are what enables you to enter input parameters and compute outputs without having to install any software locally.
 
 More information about the [Swagger Editor](https://swagger.io/tools/swagger-editor/) is available online.
 
@@ -121,7 +121,7 @@ cd score
 
 Next, download the latest release of the KGrid Activator from the [release page](https://github.com/kgrid/kgrid-activator/releases) (https://github.com/kgrid/kgrid-activator/releases)
 
-Then, move the KGrid Activator into the `score` directory you just cloned and checked out and start up the Activator while pointing it to the current directory. 
+Then, move the KGrid Activator into the `score` directory you just cloned and checked out and start up the Activator while pointing it to the current directory.
 
 NOTE: To run the KGrid Activator you will need the [Java SDK version 8 or higher](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) running on your machine:
 
@@ -170,6 +170,3 @@ Click on the green Send All button to perform a calculation on your machine usin
 
 
 ![KO POST](resources/request.png?raw=true "Title")
-
-
-
