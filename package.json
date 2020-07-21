@@ -4,14 +4,14 @@
   "description": "SCORE 10yr Risk Model Javascript KO",
   "main": "score10yrRisk.js",
   "dependencies": {
-    "ajv": "^6.10.0",
-    "csvtojson": "^2.0.8"
+    "ajv": "^6.12.3",
+    "csvtojson": "^2.0.10"
   },
   "devDependencies": {
-    "jest": "^24.5.0",
+    "@kgrid/cli": "^0.5.1",
+    "jest": "^24.9.0",
     "jest-junit": "^10.0.0",
-    "rewire": "^4.0.1",
-    "@kgrid/cli": "^0.4.3"
+    "rewire": "^4.0.1"
   },
   "scripts": {
     "package": "cd 99999-score && kgrid package",
