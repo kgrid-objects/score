@@ -1,5 +1,5 @@
 endpoints:
   /score:
-    adapterType: JAVASCRIPT
+    adapter: JAVASCRIPT
     artifact: ./score.js
-    entry: score10yrRisk
+    function: score10yrRisk
