@@ -8,8 +8,7 @@
     "csvtojson": "^2.0.10"
   },
   "devDependencies": {
-    "@kgrid/cli": "^0.5.1",
-    "jest": "^24.9.0",
+    "jest": "^26.0.0",
     "jest-junit": "^10.0.0",
     "rewire": "^4.0.1"
   },
