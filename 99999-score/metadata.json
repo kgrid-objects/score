@@ -2,7 +2,7 @@
   "@id": "99999-score",
   "@type":"koio:KnowledgeObject",
   "identifier":"ark:/99999/score",
-  "version":"v2.1.0",
+  "version":"v2.2.0",
   "title":"Systematic COronary Risk Evaluation (SCORE) All Europe High/Low 10 Year Cardiac Risk Population Model",
   "contributors": "A prototype of the Knowledge Grid team based on the HeartScore of the European Association of Preventive Cardiology",
   "description": "A computable function to predict 10-year risk of cardiovascular disease in European high and low risk populations",

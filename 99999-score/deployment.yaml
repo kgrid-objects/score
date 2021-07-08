@@ -1,5 +1,5 @@
-endpoints:
-  /score:
-    adapter: JAVASCRIPT
-    artifact: ./score.js
+/score:
+  post:
+    engine: javascript
+    artifact: score.js
     function: score10yrRisk
