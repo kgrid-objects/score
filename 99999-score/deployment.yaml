@@ -1,5 +1,5 @@
 /score:
   post:
-    engine: javascript
-    artifact: score.js
-    function: score10yrRisk
+    engine: "javascript"
+    artifact: "score.js"
+    function: "score10yrRisk"
